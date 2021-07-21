@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS classwork 3</title>
+</head>
+<body>
+<script>
+  // - створити функцію яка приймає масив та виводить його
+
+  function printArr(arr) {
+    document.write(`<ul>`);
+    for (const elem of arr) {
+      document.write(`<li>${elem}</li>`);
+      console.log(elem);
+    }
+    document.write(`</ul>`);
+  }
+
+  printArr([1000, 'text', true, false, null, undefined, NaN]);
+
+  // - створити функцію яка приймає три числа та виводить найменьше. (Без Math.min!)
+
+  function printMin(a, b, c) {
+    if (a < b && a < c) {
+      console.log(a);
+    } else if (b < a && b < c) {
+      console.log(b);
+    } else {
+      console.log(c);
+    }
+  }
+
+  printMin(5, 2, 10);
+
+  // - створити функцію яка приймає три числа та виводить найбільше. (Без Math.max!)
+
+  function printMax(a, b, c) {
+    if (a > b && a > c) {
+      console.log(a);
+    } else if (b > a && b > c) {
+      console.log(b);
+    } else {
+      console.log(c);
+    }
+  }
+
+  printMax(25, 4, 12);
+
+  // - створити функцію яка повертає найбільше число з масиву
+
+  function printMaxValue(arr) {
+    let max = arr[0];
+
+    for (const elem of arr) {
+      if (elem > max) {
+        max = elem;
+      }
+    }
+
+    console.log(max);
+  }
+
+  printMaxValue([3, 0, 5, -9, 20, -4, 15, 11]);
+
+  // - створити функцію яка повертає найменьше число з масиву
+
+  function printMinValue(arr) {
+    let min = arr[0];
+
+    for (const elem of arr) {
+      if (elem < min) {
+        min = elem;
+      }
+    }
+
+    console.log(min);
+  }
+
+  printMinValue([3, 0, 5, -9, 20, -4, 15, 11]);
+
+  // - створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13
+
+  function calcElementsSum(arr) {
+    let sum = 0;
+
+    for (const elem of arr) {
+      sum += elem;
+    }
+
+    return sum;
+  }
+
+  console.log(calcElementsSum([3, 0, 5, -9, 20, -4, 15, 11]));
+
+  // - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
+
+  function calcArithmMean(arr) {
+    let sum = 0;
+
+    for (const elem of arr) {
+      sum += elem;
+    }
+
+    return sum / arr.length;
+  }
+
+  console.log(calcArithmMean([3, 0, 5, -9, 20, -4, 15, 11]));
+
+  /*
+- створити функцію яка заповнює масив рандомними числами
+  (цей код генерує рандомні числа в діапазоні від 0 до 100 - Math.round(Math.random()*100)) та виводить його.
+  Для виведення використати попередню функцію.
+   */
+
+  function genRandomArr(arrLen) {
+    let numbers = [];
+
+    for (let i = 0; i < arrLen; i++) {
+      numbers[i] = Math.round(Math.random() * 100);
+    }
+
+    printArr(numbers);
+  }
+
+  genRandomArr(25);
+
+  /*
+- Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
+  EXAMPLE:
+  [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ name, age, model ]
+   */
+
+  function getKeys(objArr) {
+    let keys = [];
+
+    for (const obj of objArr) {
+      for (const key in obj) {
+        keys.push(key);
+      }
+    }
+
+    return keys;
+  }
+
+  console.log(getKeys([{ name: 'Dima', age: 13 }, { model: 'Camry' }]));
+
+  /*
+- Створити функцію яка приймає масив будь яких объектів, та повертає масив значень всіх обєктів
+  EXAMPLE:
+  [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ Dima, 13, Camry ]
+   */
+
+  function getValues(objArr) {
+    let values = [];
+
+    for (const obj of objArr) {
+      for (const key in obj) {
+        values.push(obj[key]);
+      }
+    }
+
+    return values;
+  }
+
+  console.log(getValues([{name: 'Dima', age: 13}, {model: 'Camry'}]));
+
+</script>
+</body>
+</html>
